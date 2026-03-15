@@ -37,9 +37,10 @@ body {
   min-height: 100vh; /*fills the whole screen on load */
   display: flex;
   flex-wrap: wrap-reverse;
-  justify-content: space-around;
+  justify-content: space-between;
   padding: 0 6vw; /*vw = viewport width. Scales with screen size */
   align-items: center;
+  gap: 60px;
   background: radial-gradient(
     ellipse 80% 60% at 20% 50%,
     rgba(124, 106, 245, 0.06) 0%,
@@ -70,13 +71,30 @@ body {
 }
 
 .left-intro {
-  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 20px;
   max-width: 560px;
   gap: 24px;
   animation: fadeUp 0.6s ease forwards;
+}
+.intro-actions {
+  display: flex;
+  gap: 16px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  cursor: pointer;
 }
 .intro-heading {
   font-family: var(--font-display);
@@ -110,14 +128,14 @@ body {
 .tech-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  opacity: 2;
+  gap: 10px;
+  opacity: 0;
   animation: fadeUp 0.6s ease forwards;
   animation-delay: 0.45s;
 }
 
 .tag {
-  padding: 5px;
+  padding: 5px 14px;
   border: 1px solid var(--border);
   border-radius: 100px;
   padding: 5px;
@@ -327,6 +345,19 @@ body {
   margin: 80px auto 50px;
   border-bottom: 3px solid var(--accent);
 }
+.project h2 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+.project p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0;
+}
 
 @keyframes scale-in-center {
   0% {
@@ -374,4 +405,38 @@ body {
 .project-btn--outline:hover {
   border-color: var(--accent);
   color: var(--accent);
+}
+@media (max-width: 768px) {
+  .intro-container {
+    flex-direction: column-reverse; /* image on top on mobile */
+    text-align: center;
+    padding: 80px 6vw 60px;
+    min-height: auto;
+    gap: 40px;
+  }
+
+  .intro-label,
+  .tech-tags,
+  .social-icons {
+    justify-content: center;
+  }
+
+  .intro-description {
+    max-width: 100%;
+  }
+
+  .right-intro::before,
+  .right-intro::after {
+    display: none; /* hide spinning ring on mobile for performance */
+  }
+
+  .projects-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .project {
+    max-width: 100%;
+    width: 100%;
+  }
 }
