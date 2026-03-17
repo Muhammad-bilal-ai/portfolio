@@ -451,12 +451,11 @@ body {
   .intro-description {
     max-width: 100%;
   }
-
+  /* 
   .right-intro::before,
   .right-intro::after {
     display: none; /* hide spinning ring on mobile for performance */
-  }
-
+  /* } */
   .projects-container {
     flex-direction: column;
     align-items: center;
