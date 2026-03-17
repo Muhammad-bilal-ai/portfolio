@@ -30,7 +30,6 @@ body {
   font-family: var(--font-body);
   font-weight: 300;
   overflow-x: hidden;
-  /* Subtle noise texture via SVG — adds depth without images */
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
 }
 .intro-container {
@@ -83,19 +82,25 @@ body {
   gap: 16px;
 }
 
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 24px;
+.resume_btn {
+  padding: 8px 18px;
   border-radius: 8px;
-  font-family: var(--font-body);
-  font-size: 0.9rem;
+  font-size: 0.82rem;
   font-weight: 500;
+  font-family: var(--font-body);
   text-decoration: none;
-  transition: all 0.25s ease;
-  cursor: pointer;
+  transition: all 0.2s ease;
+  background: var(--accent);
+  color: var(--bg-primary);
+  border: 1px solid transparent;
 }
+.resume_btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(199, 237, 232, 0.3);
+  background-color: var(--bg);
+  color: var(--text-secondary);
+}
+
 .intro-heading {
   font-family: var(--font-display);
   font-size: clamp(2.2rem, 4.5vw, 4rem);
@@ -419,6 +424,10 @@ body {
   .tech-tags,
   .social-icons {
     justify-content: center;
+  }
+  .resume_btn {
+    display: block;
+    margin: 0 auto;
   }
 
   .intro-description {
